@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lightwork — Knockout List v7.0 ✦</title>
+
+<!-- home screen / standalone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Knockout">
+<meta name="theme-color" content="#1E1338">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* twilight beach-city sky — near-black purple sinking into rose */
+  --bg:#120522;
+  --bg-grad:linear-gradient(168deg,#120522 0%,#280C43 28%,#4C1B56 58%,#7A2C5D 85%,#9E3C6E 100%);
+  --panel:#3E2870;
+  --panel-hi:#4E3388;
+  --panel-glass:rgba(255,255,255,.08);
+  --line:#6B49A6;
+  --line-soft:#553B88;
+
+  --text:#FFF6FB;
+  --text-2:#DCCBF2;
+  --text-3:#A992D6;
+
+  /* gems */
+  --rose:#FF7EAE;      /* Rose Quartz / Steven */
+  --rose-deep:#FF5C93;
+  --star:#FFCE3A;      /* Steven's star */
+  --amethyst:#C77DFF;  /* Amethyst */
+  --lapis:#45C8FF;     /* Lapis */
+  --peridot:#B6F53C;   /* Peridot */
+  --ruby:#FF5C74;      /* Ruby / Garnet — urgency */
+  --pearl:#FFE9D6;
+  --green:#5CF0A0;
+
+  --glow-rose:rgba(255,143,180,.45);
+  --glow-star:rgba(255,210,77,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{
+  background:var(--bg);
+  background-image:var(--bg-grad);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Nunito',system-ui,-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:calc(90px + env(safe-area-inset-bottom));
+}
+.mono{font-family:'Space Mono',ui-monospace,monospace}
+.disp{font-family:'Fredoka',sans-serif}
+.wrap{
+  max-width:900px;margin:0 auto;position:relative;z-index:1;
+  padding-left:calc(22px + env(safe-area-inset-left));
+  padding-right:calc(22px + env(safe-area-inset-right));
+}
+
+/* ── masthead + starfield ─────────────────── */
+.masthead{
+  border-bottom:1px solid var(--line);padding:26px 0 0;position:relative;overflow:hidden;
+}
+.masthead::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 22%, #fff 50%, transparent),
+    radial-gradient(1.3px 1.3px at 78% 15%, #fff 50%, transparent),
+    radial-gradient(1.8px 1.8px at 34% 62%, #FFE9D6 50%, transparent),
+    radial-gradient(1.2px 1.2px at 62% 44%, #fff 50%, transparent),
+    radial-gradient(1.5px 1.5px at 88% 68%, #FFD24D 50%, transparent),
+    radial-gradient(1.2px 1.2px at 22% 82%, #fff 50%, transparent),
+    radial-gradient(1.4px 1.4px at 50% 30%, #FF8FB4 50%, transparent);
+  animation:twinkle 4.5s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.4}to{opacity:1}}
+
+.mast-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative}
+.wordmark{
+  font-family:'Fredoka',sans-serif;font-size:25px;font-weight:600;letter-spacing:-.01em;
+  color:var(--text);display:flex;align-items:center;gap:9px;
+}
+.wordmark::before{content:"✦";color:var(--star);font-size:20px;filter:drop-shadow(0 0 6px var(--glow-star))}
+.wordmark span{color:var(--text-3);font-weight:500}
+.mast-meta{
+  font-family:'Space Mono',monospace;font-size:12px;
+  color:var(--text-3);letter-spacing:.03em;text-transform:uppercase;
+}
+.mast-meta b{color:var(--rose);font-weight:700}
+
+/* ── gate readout ─────────────────────────── */
+.gate{padding:30px 0 24px;position:relative}
+.gate::before{
+  content:"";position:absolute;left:-30px;top:0;width:260px;height:200px;
+  background:radial-gradient(circle at 40% 45%,var(--glow-rose),transparent 62%);
+  filter:blur(26px);pointer-events:none;
+}
+.gate-num{
+  font-family:'Fredoka',sans-serif;
+  font-size:96px;line-height:.85;font-weight:700;letter-spacing:-.03em;
+  background:linear-gradient(125deg,var(--rose) 0%,var(--amethyst) 48%,var(--star) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 22px var(--glow-rose));
+}
+.gate.clear .gate-num{
+  font-size:56px;letter-spacing:-.01em;
+  background:linear-gradient(120deg,var(--green),var(--lapis) 55%,var(--star));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.gate-label{font-family:'Fredoka',sans-serif;font-size:20px;font-weight:500;margin-top:14px;letter-spacing:-.005em;color:var(--text)}
+.gate.clear .gate-label{color:var(--green)}
+
+.ticks{display:flex;gap:5px;margin-top:22px;height:16px}
+.tick{flex:1 1 0;min-width:3px;background:var(--line);border-radius:99px;transition:background .3s ease,box-shadow .3s ease}
+.tick.blocking{background:#6E3A52}
+.tick.done{background:var(--amethyst)}
+.tick.done.blocking{background:var(--ruby);box-shadow:0 0 8px -1px var(--ruby)}
+.ticks-legend{
+  display:flex;gap:22px;margin-top:13px;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:13px;color:var(--text-3);
+}
+
+/* ── controls ─────────────────────────────── */
+.controls{
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+  padding:16px 0;border-top:1px solid var(--line);
+  position:sticky;top:0;background:rgba(30,19,56,.86);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:20;
+}
+.chip{
+  font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.01em;
+  padding:8px 16px;border:1px solid var(--line);border-radius:99px;
+  background:var(--panel-glass);color:var(--text-2);cursor:pointer;transition:all .15s ease;
+}
+.chip:hover{border-color:var(--rose);color:var(--text)}
+.chip[aria-pressed="true"]{
+  background:linear-gradient(120deg,var(--rose),var(--amethyst));
+  border-color:transparent;color:#fff;
+  box-shadow:0 4px 14px -4px var(--glow-rose);
+}
+.chip:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid var(--lapis);outline-offset:2px;
+}
+.spacer{flex:1}
+.ghost{
+  font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.03em;
+  background:none;border:none;color:var(--text-3);cursor:pointer;
+  padding:8px 10px;border-radius:8px;
+}
+.ghost:hover{color:var(--star);background:var(--panel-glass)}
+
+/* search */
+.search-wrap{position:relative;flex:1 1 190px;min-width:150px}
+.search{
+  width:100%;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
+  padding:8px 30px 8px 14px;border:1px solid var(--line);border-radius:99px;
+  background:var(--panel-glass);color:var(--text);
+}
+.search::placeholder{color:var(--text-3);font-weight:500}
+.search:focus{border-color:var(--lapis)}
+.search-clear{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--text-3);cursor:pointer;
+  font-size:18px;line-height:1;padding:2px 6px;display:none;
+}
+.search-clear.on{display:block}
+.search-clear:hover{color:var(--rose)}
+
+/* ── sections ─────────────────────────────── */
+.section{margin-top:48px;--gem:var(--rose)}
+.sec-blocking{--gem:var(--ruby)}
+.sec-decision{--gem:var(--star)}
+.sec-backend{--gem:var(--lapis)}
+.sec-backlog{--gem:var(--peridot)}
+.sec-deferred{--gem:var(--amethyst)}
+.sec-head{display:flex;align-items:center;gap:13px;padding-bottom:14px;border-bottom:2px solid var(--line-soft);position:relative}
+.sec-head::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:110px;height:2px;
+  background:var(--gem);border-radius:2px;box-shadow:0 0 14px 1px var(--gem);
+}
+.sec-dot{
+  width:18px;height:18px;flex:0 0 auto;border-radius:5px;
+  transform:rotate(45deg);position:relative;background:var(--gem);
+  box-shadow:0 0 18px 0 var(--gem),0 0 5px 0 var(--gem);
+}
+.sec-dot::after{
+  content:"";position:absolute;inset:0;border-radius:5px;
+  background:linear-gradient(135deg,rgba(255,255,255,.85),transparent 52%);
+}
+.sec-title{
+  font-family:'Fredoka',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.015em;
+  color:var(--gem);text-shadow:0 0 22px color-mix(in srgb,var(--gem) 45%,transparent);
+}
+.sec-count{
+  font-family:'Space Mono',monospace;font-size:12.5px;color:var(--text-3);
+  margin-left:auto;white-space:nowrap;
+}
+.sec-note{font-size:15px;color:var(--text-2);margin-top:14px;max-width:64ch;line-height:1.6}
+
+/* ── items ────────────────────────────────── */
+.item{
+  display:flex;gap:16px;padding:19px 18px;margin-top:12px;position:relative;
+  background:var(--panel);
+  background:linear-gradient(100deg,color-mix(in srgb,var(--gem) 22%,var(--panel)),var(--panel) 46%);
+  border:1px solid var(--line);border-left:4px solid var(--gem);border-radius:14px;
+  align-items:flex-start;
+  box-shadow:-4px 0 22px -12px var(--gem),0 8px 22px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
+}
+.item:hover{
+  transform:translateX(3px);
+  background:linear-gradient(100deg,color-mix(in srgb,var(--gem) 32%,var(--panel-hi)),var(--panel-hi) 48%);
+  box-shadow:-5px 0 30px -10px var(--gem),0 12px 30px -10px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.1);
+}
+.item.done{
+  background:#211042;border-left-color:var(--line-soft)!important;opacity:.72;
+  box-shadow:0 5px 16px -10px rgba(0,0,0,.6);
+}
+.item.done:hover{opacity:.95;transform:none;background:#281550;box-shadow:0 7px 18px -10px rgba(0,0,0,.6)}
+
+/* next up glow */
+.item.pinned{
+  border-left-color:var(--star)!important;
+  background:linear-gradient(100deg,rgba(255,210,77,.12),var(--panel) 42%);
+  box-shadow:0 0 0 1px rgba(255,210,77,.3),0 8px 26px -12px var(--glow-star);
+}
+.item.pinned:hover{background:linear-gradient(100deg,rgba(255,210,77,.18),var(--panel-hi) 42%)}
+.nextup{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Fredoka',sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;
+  color:#3A2160;background:linear-gradient(120deg,var(--star),#FFC02E);
+  padding:3px 9px;border-radius:99px;margin-bottom:8px;
+  box-shadow:0 2px 8px -2px var(--glow-star);
+}
+.nextup::before{content:"★"}
+
+.box{
+  flex:0 0 auto;width:23px;height:23px;margin-top:2px;
+  border:2px solid var(--gem);border-radius:7px;
+  background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.16),var(--panel-glass));
+  box-shadow:inset 0 0 9px -3px var(--gem);
+  cursor:pointer;position:relative;transition:all .18s ease;
+}
+.box:hover{box-shadow:0 0 13px -1px var(--gem),inset 0 0 9px -2px var(--gem)}
+.item.done .box{
+  background:linear-gradient(135deg,var(--rose),var(--amethyst));
+  border-color:transparent;box-shadow:0 3px 12px -3px var(--glow-rose);
+}
+.item.done .box::after{
+  content:"";position:absolute;left:7px;top:2.5px;
+  width:5px;height:11px;border:solid #fff;
+  border-width:0 2.5px 2.5px 0;transform:rotate(42deg);
+}
+
+.item-body{flex:1;min-width:0}
+.item-title{font-family:'Fredoka',sans-serif;font-size:20px;font-weight:500;letter-spacing:-.008em;line-height:1.28;word-wrap:break-word}
+.item.done .item-title{color:var(--text-3);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--rose)}
+.item-note{font-size:14.5px;color:var(--text-2);margin-top:9px;line-height:1.6;word-wrap:break-word;white-space:pre-wrap}
+.item.done .item-note{color:var(--text-3)}
+.item-stamp{
+  font-family:'Space Mono',monospace;font-size:12px;color:var(--green);
+  letter-spacing:.03em;margin-top:11px;
+}
+.item-stamp::before{content:"✦ "}
+.item-actions{display:flex;gap:4px;flex:0 0 auto;align-items:center}
+.icon-btn{
+  background:none;border:1px solid transparent;cursor:pointer;color:var(--text-3);
+  font-family:'Space Mono',monospace;font-size:14px;padding:5px 9px;border-radius:8px;
+}
+.icon-btn:hover{color:var(--text);border-color:var(--line)}
+.icon-btn.danger:hover{color:var(--ruby);border-color:var(--ruby)}
+.icon-btn.pinned{color:var(--star);border-color:transparent;filter:drop-shadow(0 0 5px var(--glow-star))}
+
+/* ── editor ───────────────────────────────── */
+.editor{padding:18px;margin-top:11px;background:var(--panel-hi);border:1px solid var(--line);border-left:4px solid var(--lapis);border-radius:14px;box-shadow:0 6px 20px -8px rgba(0,0,0,.55)}
+.editor input,.editor textarea{
+  width:100%;font-family:'Nunito',sans-serif;font-weight:600;
+  border:1px solid var(--line);border-radius:10px;padding:12px 13px;
+  background:var(--bg);color:var(--text);margin-bottom:10px;
+}
+.editor input{font-family:'Fredoka',sans-serif;font-size:19px;font-weight:500;letter-spacing:-.008em}
+.editor textarea{font-size:14.5px;font-weight:500;min-height:88px;resize:vertical;line-height:1.6;color:var(--text-2)}
+.editor input::placeholder,.editor textarea::placeholder{color:var(--text-3)}
+.editor select{
+  width:100%;font-family:'Space Mono',monospace;font-size:13px;
+  letter-spacing:.02em;border:1px solid var(--line);border-radius:10px;
+  padding:11px 12px;background:var(--bg);color:var(--text-2);margin-bottom:10px;cursor:pointer;
+}
+.editor-lbl{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--text-3);margin-bottom:6px;display:block;
+}
+.editor-row{display:flex;gap:8px}
+.btn{
+  font-family:'Fredoka',sans-serif;font-size:14px;font-weight:600;letter-spacing:.01em;
+  padding:10px 20px;border-radius:99px;cursor:pointer;border:1px solid transparent;
+  background:linear-gradient(120deg,var(--rose),var(--amethyst));color:#fff;
+  box-shadow:0 4px 14px -5px var(--glow-rose);
+}
+.btn.sub{background:transparent;color:var(--text-2);border-color:var(--line);box-shadow:none}
+.btn.sub:hover{color:var(--text);border-color:var(--rose)}
+
+.add-row{padding:13px 0 0}
+.add-btn{
+  font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.03em;
+  background:none;border:1px dashed var(--line);color:var(--text-3);
+  padding:12px 16px;border-radius:12px;cursor:pointer;width:100%;text-align:left;
+}
+.add-btn:hover{border-color:var(--rose);color:var(--rose);border-style:solid}
+
+.empty{padding:20px 18px;font-size:15px;color:var(--text-3);background:var(--panel-glass);border-left:4px solid var(--line);border-radius:12px;margin-top:11px}
+
+/* ── toast ────────────────────────────────── */
+.toast{
+  position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(14px);
+  background:linear-gradient(120deg,var(--rose),var(--amethyst));color:#fff;font-weight:700;
+  font-family:'Fredoka',sans-serif;font-size:14px;
+  padding:13px 22px;border-radius:99px;opacity:0;pointer-events:none;
+  box-shadow:0 10px 30px -8px var(--glow-rose);
+  transition:opacity .2s ease,transform .2s ease;z-index:60;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── modal ────────────────────────────────── */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,9,32,.78);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:22px;z-index:50;
+}
+.modal-bg.on{display:flex}
+.modal{
+  background:var(--bg);background-image:var(--bg-grad);
+  max-width:620px;width:100%;padding:26px;
+  border:1px solid var(--line);border-radius:20px;max-height:82vh;overflow:auto;
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.6);
+}
+.modal h2{font-family:'Fredoka',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.modal p{font-size:14px;color:var(--text-3);margin-bottom:16px;line-height:1.5}
+.modal textarea{
+  width:100%;height:300px;font-family:'Space Mono',monospace;font-size:12.5px;
+  line-height:1.6;border:1px solid var(--line);padding:14px;border-radius:12px;
+  background:rgba(15,9,32,.5);color:var(--text-2);resize:vertical;
+}
+.modal-actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
+
+/* activity log */
+.log-day{margin-bottom:18px}
+.log-date{
+  font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text-3);padding-bottom:6px;
+  border-bottom:1px solid var(--line);margin-bottom:10px;
+}
+.log-entry{display:flex;gap:11px;align-items:baseline;padding:5px 0;font-size:14px}
+.log-time{font-family:'Space Mono',monospace;font-size:12px;color:var(--text-3);flex:0 0 52px}
+.log-act{font-family:'Fredoka',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;padding:2px 9px;border-radius:99px;flex:0 0 auto;color:#2E1B52}
+.log-act.done{background:var(--green)}
+.log-act.reopen{background:var(--star)}
+.log-act.add{background:var(--lapis)}
+.log-act.del{background:var(--ruby)}
+.log-act.pin{background:var(--amethyst)}
+.log-title{color:var(--text-2);word-wrap:break-word;min-width:0}
+.log-empty{color:var(--text-3);font-size:14px;padding:20px 0;text-align:center}
+
+.loading{padding:70px 0;text-align:center;font-family:'Space Mono',monospace;font-size:14px;color:var(--text-3);letter-spacing:.05em}
+
+@media (max-width:600px){
+  .gate-num{font-size:70px}
+  .sec-title{font-size:21px}
+  .item-title{font-size:18px}
+  .wordmark{font-size:22px}
+  .wrap{padding-left:calc(16px + env(safe-area-inset-left));padding-right:calc(16px + env(safe-area-inset-right))}
+  .item{padding:16px 15px;gap:13px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="mast-row">
+      <div class="wordmark">Lightwork <span>/ Knockout List</span></div>
+      <div class="mast-meta" id="meta">—</div>
+    </div>
+    <div class="gate" id="gate">
+      <div class="gate-num mono" id="gateNum">—</div>
+      <div class="gate-label" id="gateLabel">Loading</div>
+      <div class="ticks" id="ticks"></div>
+      <div class="ticks-legend">
+        <span id="legendDone">—</span>
+        <span id="legendBlock">—</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="open" aria-pressed="false">Open only</button>
+    <button class="chip" data-filter="blocking" aria-pressed="false">Blocking</button>
+    <div class="search-wrap">
+      <input type="text" class="search" id="search" placeholder="Search…" autocomplete="off" aria-label="Search items">
+      <button class="search-clear" id="searchClear" aria-label="Clear search">&times;</button>
+    </div>
+    <div class="spacer"></div>
+    <button class="ghost" id="logBtn">Log</button>
+    <button class="ghost" id="exportBtn">Export MD</button>
+    <button class="ghost" id="backupBtn">Backup</button>
+    <button class="ghost" id="resetBtn">Reset</button>
+  </div>
+  <div id="board"><div class="loading">Loading tracker…</div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2 id="modalTitle">Export as Markdown</h2>
+    <p id="modalHint"></p>
+    <textarea id="modalText"></textarea>
+    <div class="modal-actions">
+      <button class="btn sub" id="modalClose">Close</button>
+      <button class="btn sub" id="modalRestore" style="display:none">Restore from this</button>
+      <button class="btn" id="modalCopy">Copy</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="logBg">
+  <div class="modal">
+    <h2>Activity log</h2>
+    <p>What you've knocked out, reopened, added, or removed. Most recent first.</p>
+    <div id="logBody"></div>
+    <div class="modal-actions">
+      <button class="btn sub" id="logClear">Clear log</button>
+      <button class="btn" id="logClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const KEY = 'lightwork-knockout-v1';
+
+/* ── storage adapter ───────────────────────────────────────
+   Uses Claude's artifact storage when it exists, falls back to
+   localStorage everywhere else. Same file works in both places. */
+const store = (function(){
+  const claude = (typeof window !== 'undefined')
+    && window.storage
+    && typeof window.storage.get === 'function'
+    && typeof window.storage.set === 'function';
+
+  if(claude){
+    return {
+      mode:'claude',
+      async get(k){ const r = await window.storage.get(k); return r ? r.value : null; },
+      async set(k,v){ await window.storage.set(k,v); }
+    };
+  }
+  return {
+    mode:'local',
+    async get(k){ return window.localStorage.getItem(k); },
+    async set(k,v){ window.localStorage.setItem(k,v); }
+  };
+})();
+
+const SECTIONS = [
+  { id:'blocking', cls:'sec-blocking', title:'Blocking submission', note:'' },
+  { id:'decision', cls:'sec-decision', title:'Needs a decision', note:'' },
+  { id:'backend',  cls:'sec-backend',  title:'When backend ships',
+    note:'Not needed for the current local-only submission. These become live the moment user data starts leaving the device.' },
+  { id:'backlog',  cls:'sec-backlog',  title:'Backlog', note:'' },
+  { id:'deferred', cls:'sec-deferred', title:'Deferred', note:'' }
+];
+
+const SEED = [
+  { s:'blocking', t:'PrivacyInfo.xcprivacy manifest', n:'Added directly in the Xcode project (ios/App/App/), not via npm. Capacitor core ships its own manifest, so the app-level one covers only your own API usage.', d:false },
+  { s:'blocking', t:'App icon assets', n:'No custom icon set yet.', d:false },
+  { s:'blocking', t:'Launch screen assets', n:'Still default / placeholder.', d:false },
+  { s:'blocking', t:'Bottom safe-area strip', n:'Fixed by setting ios.contentInset to "never" in capacitor.config.json.', d:true, dd:'2026-07-18' },
+
+  { s:'decision', t:'Fasting guardrail thresholds', n:'Three-tier UI (gentle nudge / caution banner / hard stop) is built, but the clinical hour thresholds are null placeholders. Copy is already non-numeric, so this is purely the trigger values.', d:false },
+  { s:'decision', t:'Weekly planning storage shape', n:'Date-keyed (resets weekly, matches current plannedWorkouts) vs. day-of-week template (permanent repeating week). Gates the whole planning-spine build.', d:false },
+  { s:'decision', t:'iPad support timing', n:'CSS work is straightforward, but the Xcode device-family toggle (Universal vs iPhone-only) has to flip first or the layout work does not reach the App Store. No urgency — just a now-or-later call.', d:false },
+
+  { s:'backend', t:'Update privacy manifest for collected data', n:'NSPrivacyCollectedDataTypes moves from empty to populated. Likely: Health & Fitness (fasting/workout), Identifiers (user ID), possibly Contact Info (email). Tracking = false; Purposes = AppFunctionality unless analytics get added.', d:false },
+  { s:'backend', t:'App Store Connect privacy questionnaire', n:'Separate public-facing form — the actual Nutrition Label. Must match the manifest or it gets flagged in review.', d:false },
+  { s:'backend', t:'Write and publish a privacy policy', n:'Mandatory once data is collected server-side. App Store Connect requires a live URL.', d:false },
+
+  { s:'backlog', t:'@capacitor/app', n:'Native lifecycle hook (appStateChange) — more reliable backstop than visibilitychange alone for the timer resync pattern.', d:false },
+  { s:'backlog', t:'@capacitor/local-notifications', n:'', d:false },
+  { s:'backlog', t:'@capacitor/preferences', n:'Native storage redundancy alongside localStorage. Note: triggers a UserDefaults declaration (CA92.1) in the privacy manifest.', d:false },
+  { s:'backlog', t:'@capacitor/share', n:'', d:false },
+  { s:'backlog', t:'@capacitor/keyboard', n:'', d:false },
+  { s:'backlog', t:'Live Activities / Dynamic Island', n:'Native Swift — separate Xcode target, not the HTML file. For the fasting timer.', d:false },
+  { s:'backlog', t:'HealthKit sleep integration', n:'Native Swift — separate Xcode target.', d:false },
+  { s:'backlog', t:'Home screen widgets', n:'Native Swift — separate Xcode target.', d:false },
+  { s:'backlog', t:'Background notifications', n:'Native Swift — separate Xcode target.', d:false },
+  { s:'backlog', t:'Universal calendar', n:'Day-level ledger pulling from fasting, Move, and habits. Current calendar only covers habits + 2-min goals.', d:false },
+  { s:'backlog', t:'iPad layout & breakpoints', n:'Once the Xcode device-family decision is made.', d:false },
+
+  { s:'deferred', t:'Weekly planning system', n:'Full architecture scoped: one per-day plan data layer, two views (week authoring + daily blueprint), day-preset templates, week rollover. Ship sequence defined but on hold until the storage-shape decision lands.', d:false }
+];
+
+let state = null;
+let filter = 'all';
+let searchText = '';
+let editingId = null;
+let addingTo = null;
+let modalMode = 'md';
+
+const LOG_CAP = 200;
+
+const $ = id => document.getElementById(id);
+const uid = () => 'i' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+const esc = s => String(s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today = () => new Date().toISOString().slice(0,10);
+
+function seedState(){
+  return {
+    v:2, updated:today(),
+    log:[],
+    items: SEED.map(x => ({
+      id:uid(), section:x.s, title:x.t, note:x.n||'',
+      done:!!x.d, doneDate:x.dd||null, pinned:false, created:today()
+    }))
+  };
+}
+
+/* backfill fields for state saved by an earlier version */
+function migrate(s){
+  if(!s) return s;
+  if(!Array.isArray(s.log)) s.log = [];
+  (s.items || []).forEach(i => {
+    if(i.pinned === undefined) i.pinned = false;
+  });
+  return s;
+}
+
+function logEvent(action, title){
+  state.log.push({ t:Date.now(), a:action, title });
+  if(state.log.length > LOG_CAP) state.log = state.log.slice(-LOG_CAP);
+}
+
+async function load(){
+  try{
+    const raw = await store.get(KEY);
+    if(!raw) throw new Error('empty');
+    state = JSON.parse(raw);
+    if(!state || !Array.isArray(state.items)) throw new Error('bad shape');
+    migrate(state);
+  }catch(e){
+    state = seedState();
+    await save(true);
+  }
+  render();
+}
+
+async function save(quiet){
+  state.updated = today();
+  try{
+    await store.set(KEY, JSON.stringify(state));
+  }catch(e){
+    if(!quiet) toast('Could not save — changes are session-only');
+  }
+}
+
+function toast(msg){
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(()=>t.classList.remove('on'), 2300);
+}
+
+function render(){
+  renderGate();
+  renderBoard();
+  $('meta').innerHTML = 'Updated ' + state.updated + ' &middot; <b>' + store.mode + '</b>';
+}
+
+function renderGate(){
+  const items = state.items;
+  const blocking = items.filter(i=>i.section==='blocking');
+  const blockOpen = blocking.filter(i=>!i.done).length;
+  const doneAll = items.filter(i=>i.done).length;
+  const gate = $('gate');
+
+  if(blockOpen === 0){
+    gate.classList.add('clear');
+    $('gateNum').textContent = 'CLEAR';
+    $('gateLabel').textContent = 'Nothing blocking submission';
+  }else{
+    gate.classList.remove('clear');
+    $('gateNum').textContent = String(blockOpen).padStart(2,'0');
+    $('gateLabel').textContent = blockOpen === 1
+      ? 'Blocker between you and submission'
+      : 'Blockers between you and submission';
+  }
+
+  const ordered = [...blocking, ...items.filter(i=>i.section!=='blocking')];
+  $('ticks').innerHTML = ordered.map(i =>
+    `<div class="tick${i.section==='blocking'?' blocking':''}${i.done?' done':''}" title="${esc(i.title)}"></div>`
+  ).join('');
+
+  $('legendDone').textContent = doneAll + ' / ' + items.length + ' knocked out';
+  $('legendBlock').textContent = (blocking.length - blockOpen) + ' / ' + blocking.length + ' blockers cleared';
+}
+
+function matchesSearch(i){
+  if(!searchText) return true;
+  const q = searchText.toLowerCase();
+  return i.title.toLowerCase().includes(q) || (i.note||'').toLowerCase().includes(q);
+}
+
+function visible(i){
+  if(!matchesSearch(i)) return false;
+  if(filter === 'open') return !i.done;
+  if(filter === 'blocking') return i.section === 'blocking';
+  return true;
+}
+
+function renderBoard(){
+  let html = '';
+
+  SECTIONS.forEach(sec => {
+    const all = state.items.filter(i => i.section === sec.id);
+    // pinned (and not done) rise to the top; stable otherwise
+    const shown = all.filter(visible).sort((a,b) => {
+      const ap = a.pinned && !a.done ? 1 : 0;
+      const bp = b.pinned && !b.done ? 1 : 0;
+      return bp - ap;
+    });
+    if(filter === 'blocking' && sec.id !== 'blocking') return;
+    if(filter === 'open' && shown.length === 0 && addingTo !== sec.id) return;
+    if(searchText && shown.length === 0 && addingTo !== sec.id) return;
+
+    const open = all.filter(i=>!i.done).length;
+    html += `<section class="section ${sec.cls}">
+      <div class="sec-head">
+        <div class="sec-dot"></div>
+        <div class="sec-title">${esc(sec.title)}</div>
+        <div class="sec-count mono">${open} open / ${all.length}</div>
+      </div>`;
+    if(sec.note) html += `<div class="sec-note">${esc(sec.note)}</div>`;
+
+    if(shown.length === 0 && addingTo !== sec.id){
+      html += `<div class="empty">Nothing here.</div>`;
+    }
+
+    shown.forEach(i => {
+      if(editingId === i.id){
+        html += editorHTML(i.id, i.title, i.note, 'Save changes', i.section);
+      }else{
+        const isPin = i.pinned && !i.done;
+        html += `<div class="item${i.done?' done':''}${isPin?' pinned':''}">
+          <div class="box" role="checkbox" tabindex="0" aria-checked="${i.done}" data-act="toggle" data-id="${i.id}" aria-label="Mark ${esc(i.title)}"></div>
+          <div class="item-body">
+            ${isPin ? `<div class="nextup">NEXT UP</div>` : ''}
+            <div class="item-title">${esc(i.title)}</div>
+            ${i.note ? `<div class="item-note">${esc(i.note)}</div>` : ''}
+            ${i.done && i.doneDate ? `<div class="item-stamp mono">Knocked out ${i.doneDate}</div>` : ''}
+          </div>
+          <div class="item-actions">
+            ${!i.done ? `<button class="icon-btn${i.pinned?' pinned':''}" data-act="pin" data-id="${i.id}" title="${i.pinned?'Unpin':'Mark next up'}">${i.pinned?'★':'☆'}</button>` : ''}
+            <button class="icon-btn" data-act="edit" data-id="${i.id}">Edit</button>
+            <button class="icon-btn danger" data-act="del" data-id="${i.id}">Del</button>
+          </div>
+        </div>`;
+      }
+    });
+
+    if(addingTo === sec.id){
+      html += editorHTML('new:'+sec.id, '', '', 'Add item', sec.id);
+    }else{
+      html += `<div class="add-row"><button class="add-btn" data-act="addopen" data-sec="${sec.id}">+ Add item</button></div>`;
+    }
+    html += `</section>`;
+  });
+
+  $('board').innerHTML = html;
+  const f = $('board').querySelector('.editor input');
+  if(f) f.focus();
+}
+
+function editorHTML(key, title, note, label, currentSection){
+  const opts = SECTIONS.map(s =>
+    `<option value="${s.id}"${s.id===currentSection?' selected':''}>${esc(s.title)}</option>`
+  ).join('');
+  return `<div class="editor" data-key="${key}">
+    <input type="text" class="e-title" value="${esc(title)}" placeholder="What needs doing" maxlength="180">
+    <textarea class="e-note" placeholder="Context, constraints, decisions — optional">${esc(note)}</textarea>
+    <label class="editor-lbl">Section</label>
+    <select class="e-section">${opts}</select>
+    <div class="editor-row">
+      <button class="btn" data-act="save" data-key="${key}">${label}</button>
+      <button class="btn sub" data-act="cancel">Cancel</button>
+    </div>
+  </div>`;
+}
+
+document.addEventListener('click', async e => {
+  const el = e.target.closest('[data-act],[data-filter]');
+  if(!el) return;
+
+  if(el.dataset.filter){
+    filter = el.dataset.filter;
+    document.querySelectorAll('.chip').forEach(c =>
+      c.setAttribute('aria-pressed', String(c.dataset.filter === filter)));
+    renderBoard();
+    return;
+  }
+
+  const act = el.dataset.act;
+
+  if(act === 'toggle'){
+    const it = state.items.find(i => i.id === el.dataset.id);
+    if(!it) return;
+    it.done = !it.done;
+    it.doneDate = it.done ? today() : null;
+    logEvent(it.done ? 'done' : 'reopen', it.title);
+    await save();
+    render();
+    if(it.done && it.section === 'blocking'){
+      const left = state.items.filter(i=>i.section==='blocking' && !i.done).length;
+      toast(left === 0 ? 'All blockers cleared' : left + ' blocker' + (left>1?'s':'') + ' left');
+    }
+  }
+
+  if(act === 'pin'){
+    const it = state.items.find(i => i.id === el.dataset.id);
+    if(!it) return;
+    it.pinned = !it.pinned;
+    logEvent('pin', (it.pinned ? 'Marked next up: ' : 'Unpinned: ') + it.title);
+    await save();
+    render();
+  }
+
+  if(act === 'edit'){ editingId = el.dataset.id; addingTo = null; renderBoard(); }
+  if(act === 'cancel'){ editingId = null; addingTo = null; renderBoard(); }
+  if(act === 'addopen'){ addingTo = el.dataset.sec; editingId = null; renderBoard(); }
+
+  if(act === 'del'){
+    const it = state.items.find(i => i.id === el.dataset.id);
+    if(!it) return;
+    if(!confirm('Delete "' + it.title + '"? This cannot be undone.')) return;
+    state.items = state.items.filter(i => i.id !== it.id);
+    logEvent('del', it.title);
+    await save();
+    render();
+    toast('Deleted');
+  }
+
+  if(act === 'save'){
+    const box = el.closest('.editor');
+    const title = box.querySelector('.e-title').value.trim();
+    const note = box.querySelector('.e-note').value.trim();
+    const section = box.querySelector('.e-section').value;
+    if(!title){ box.querySelector('.e-title').focus(); return; }
+    const key = el.dataset.key;
+    if(key.startsWith('new:')){
+      state.items.push({ id:uid(), section, title, note, done:false, doneDate:null, pinned:false, created:today() });
+      logEvent('add', title);
+      addingTo = null;
+      toast('Added');
+    }else{
+      const it = state.items.find(i => i.id === key);
+      if(it){
+        const moved = it.section !== section;
+        it.title = title; it.note = note; it.section = section;
+        if(moved){
+          const to = SECTIONS.find(s => s.id === section);
+          logEvent('add', 'Moved to ' + (to ? to.title : section) + ': ' + title);
+        }
+      }
+      editingId = null;
+      toast('Saved');
+    }
+    await save();
+    render();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    if($('logBg').classList.contains('on')){ $('logBg').classList.remove('on'); return; }
+    if($('modalBg').classList.contains('on')){ $('modalBg').classList.remove('on'); return; }
+    if(editingId || addingTo){ editingId = null; addingTo = null; renderBoard(); }
+  }
+  if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('box')){
+    e.preventDefault(); e.target.click();
+  }
+  if(e.key === 'Enter' && (e.metaKey || e.ctrlKey)){
+    const b = document.querySelector('.editor .btn[data-act="save"]');
+    if(b) b.click();
+  }
+});
+
+/* ── search ─────────────────────────────── */
+const searchEl = $('search');
+searchEl.addEventListener('input', () => {
+  searchText = searchEl.value.trim();
+  $('searchClear').classList.toggle('on', searchText.length > 0);
+  renderBoard();
+});
+$('searchClear').addEventListener('click', () => {
+  searchEl.value = '';
+  searchText = '';
+  $('searchClear').classList.remove('on');
+  renderBoard();
+  searchEl.focus();
+});
+
+/* ── activity log ───────────────────────── */
+const ACT_LABEL = { done:'DONE', reopen:'REOPEN', add:'ADD', del:'DEL', pin:'PIN' };
+
+function renderLog(){
+  if(!state.log || state.log.length === 0){
+    return '<div class="log-empty">No activity yet. Check something off and it shows up here.</div>';
+  }
+  const byDay = {};
+  [...state.log].reverse().forEach(e => {
+    const d = new Date(e.t);
+    const day = d.toISOString().slice(0,10);
+    (byDay[day] = byDay[day] || []).push(e);
+  });
+  return Object.keys(byDay).map(day => {
+    const rows = byDay[day].map(e => {
+      const t = new Date(e.t);
+      const hh = String(t.getHours()).padStart(2,'0');
+      const mm = String(t.getMinutes()).padStart(2,'0');
+      const cls = e.a === 'reopen' ? 'reopen' : e.a;
+      return `<div class="log-entry">
+        <span class="log-time">${hh}:${mm}</span>
+        <span class="log-act ${cls}">${ACT_LABEL[e.a] || e.a}</span>
+        <span class="log-title">${esc(e.title)}</span>
+      </div>`;
+    }).join('');
+    return `<div class="log-day"><div class="log-date">${day}</div>${rows}</div>`;
+  }).join('');
+}
+
+function toMarkdown(){
+  let md = '# Lightwork — Knockout List\n\n';
+  md += `_Updated ${state.updated}_\n\n`;
+  const blockOpen = state.items.filter(i=>i.section==='blocking' && !i.done).length;
+  md += blockOpen === 0
+    ? '**Nothing blocking submission.**\n\n---\n'
+    : `**${blockOpen} blocker${blockOpen>1?'s':''} between here and submission.**\n\n---\n`;
+
+  SECTIONS.forEach(sec => {
+    const all = state.items.filter(i => i.section === sec.id);
+    if(!all.length) return;
+    md += `\n## ${sec.title}\n\n`;
+    if(sec.note) md += `${sec.note}\n\n`;
+    all.forEach(i => {
+      md += `- [${i.done?'x':' '}] **${i.title}**`;
+      if(i.note) md += ` — ${i.note}`;
+      if(i.done && i.doneDate) md += ` _(done ${i.doneDate})_`;
+      md += '\n';
+    });
+  });
+  return md;
+}
+
+function openModal(mode){
+  modalMode = mode;
+  const md = mode === 'md';
+  $('modalTitle').textContent = md ? 'Export as Markdown' : 'Backup / restore';
+  $('modalHint').textContent = md
+    ? 'Paste this into a conversation to bring the current state along.'
+    : 'Save this JSON somewhere safe. Paste a previous backup in and hit Restore to load it back.';
+  $('modalText').value = md ? toMarkdown() : JSON.stringify(state, null, 2);
+  $('modalText').readOnly = md;
+  $('modalRestore').style.display = md ? 'none' : '';
+  $('modalBg').classList.add('on');
+}
+
+$('exportBtn').addEventListener('click', () => openModal('md'));
+$('backupBtn').addEventListener('click', () => openModal('json'));
+$('modalClose').addEventListener('click', () => $('modalBg').classList.remove('on'));
+$('modalBg').addEventListener('click', e => { if(e.target === $('modalBg')) $('modalBg').classList.remove('on'); });
+
+$('modalCopy').addEventListener('click', async () => {
+  const t = $('modalText');
+  t.select();
+  try{
+    await navigator.clipboard.writeText(t.value);
+    toast('Copied');
+  }catch(e){
+    try{ document.execCommand('copy'); toast('Copied'); }
+    catch(e2){ toast('Select and copy manually'); }
+  }
+});
+
+$('modalRestore').addEventListener('click', async () => {
+  let parsed;
+  try{
+    parsed = JSON.parse($('modalText').value);
+    if(!parsed || !Array.isArray(parsed.items)) throw new Error('bad shape');
+  }catch(e){
+    toast('That is not a valid backup');
+    return;
+  }
+  if(!confirm('Replace everything with this backup?')) return;
+  state = parsed;
+  await save();
+  render();
+  $('modalBg').classList.remove('on');
+  toast('Restored');
+});
+
+$('logBtn').addEventListener('click', () => {
+  $('logBody').innerHTML = renderLog();
+  $('logBg').classList.add('on');
+});
+$('logClose').addEventListener('click', () => $('logBg').classList.remove('on'));
+$('logBg').addEventListener('click', e => { if(e.target === $('logBg')) $('logBg').classList.remove('on'); });
+$('logClear').addEventListener('click', async () => {
+  if(!state.log || state.log.length === 0){ $('logBg').classList.remove('on'); return; }
+  if(!confirm('Clear the activity log? Items and progress are not affected.')) return;
+  state.log = [];
+  await save();
+  $('logBody').innerHTML = renderLog();
+  toast('Log cleared');
+});
+
+$('resetBtn').addEventListener('click', async () => {
+  if(!confirm('Reset to the original seeded list? All your edits and progress will be lost.')) return;
+  state = seedState();
+  await save();
+  render();
+  toast('Reset to seed');
+});
+
+load();
+</script>
+</body>
+</html>
